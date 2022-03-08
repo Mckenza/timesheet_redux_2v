@@ -1,0 +1,233 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#root{
+    max-width: 1400px;
+    height: 100vh;
+    margin: 0 auto;
+    background-color: aqua;
+}
+
+header{
+    width: 100%;
+    height: 5vh;
+    background-color: blanchedalmond;
+}
+
+/* ---------- MAIN ------------*/
+
+main{
+    height: 90vh;
+    width: 100%;
+    background-color: blue;
+
+    .wrap_main{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        
+    }
+}
+
+/* --------- LIST ---------- */
+
+.list_employees{
+    height: 100%;
+    width: 60%;
+    background-color: aqua;
+    position: relative;
+    overflow: hidden;
+
+    .manage_list{
+        height: 50px;
+        width: 100%;
+        margin-bottom: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .button_create{
+            height: 80%;
+            width: 80%;
+            font-size: 30px;
+            background-color: transparent;
+            box-shadow: 2px 2px 5px black;
+            border: none;
+            border-radius: 4px;
+        }
+    }
+
+    .wrap_list_empl{
+        height: calc(100% - 65px);
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        overflow: scroll;
+
+        &::-webkit-scrollbar{
+            width: 0;
+            height: 0;
+        }
+
+        .item_list{
+            height: 160px;
+            max-width: 100%;
+            background-color: antiquewhite;
+            margin: 10px;
+            flex-shrink: 0;
+        
+            .info_manage_item{
+                height: 50%;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                font-size: 20px;
+
+                .wrap_fio_position, .wrap_manage_item{
+                    width: 50%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+                    margin: 0 20px;
+                }
+
+                .wrap_manage_item{
+                    width: 10%;
+                }
+
+                .derar_item{
+                    width: 40%;
+                    align-self: center;
+                    margin: 0 20px;
+                }
+            }
+
+            .list_tables_empl{
+                height: 50%;
+                width: 100%;
+                background-color: aliceblue;
+                display: flex;
+                overflow-y: scroll;
+
+                &::-webkit-scrollbar{
+                    display: none;
+                }
+
+                .table_item{
+                    height: 100%;
+                    width: 25%;
+                    background-color: rgb(47, 0, 255);
+                    flex-shrink: 0;
+                    display: flex;
+                    flex-direction: column;
+                    position: relative;
+
+
+                    &:not(:last-child){
+                        margin-right: 15px;
+                    }
+                    
+                    
+                    .date{
+                        width: 100%;
+                        height: 30%;
+                        font-size: 18px;
+                        padding: 3px 0 0 10px;
+                    }
+
+                    .hours_from_table{
+                        width: 100%;
+                        height: 70%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        text-align: center;
+                        font-size: 22px;
+
+                    }
+
+                    .edit_table{
+                        position: absolute;
+                        top: 0;
+                        bottom: 0;
+                        left: 0;
+                        right: 0;
+                        border: none;
+                        background-color: transparent;
+                    }
+
+                    .delete_table{
+                        height: 20px;
+                        width: 20px;
+                        position: absolute;
+                        border: none;
+                        background-color: transparent;
+                        font-size: 16px;
+                        top: 0;
+                        right: 0;
+                    }
+                }
+            }
+        }
+    }
+
+
+}
+
+/* --------- /LIST ------- */
+/* --------- ADD FORM ------ */
+
+.form_add_employee{
+    height: 100%;
+    width: 40%;
+    background-color: brown;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .wrap_inputs_form{
+        height: 500px;
+        width: 70%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        input{
+            margin: 15px 0;
+            height: 30px;
+            font-size: 18px;
+            border: none;
+        }
+
+        .manage_inputs_form{
+            height: 40px;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .manage_inputs_form button{
+            height: 100%;
+            width: 30%;
+            border: none;
+        }
+    }
+}
+
+/* --------- /ADD FOMR -------- */
+/* --------- /MAIN -------- */
+
+/* --------- FOOTER ---------- */
+
+footer{
+    height: 5vh;
+    width: 100%;
+    background-color: blueviolet;
+}
+
+/* ---------- /FOOTER --------- */

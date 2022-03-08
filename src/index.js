@@ -1,17 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import './style.scss';
+import { Provider } from 'react-redux';
+import { applyMiddleware, createStore } from 'redux';
+import { rootReducer } from './redux/rootReduser';
+import { saveDateInLocal } from './redux/middlewares/saveDataInLocal';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const store = createStore(rootReducer, applyMiddleware(saveDateInLocal));
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const app = <Provider store={store}>
+  <App/>
+</Provider>
+
+
+ReactDOM.render(app, document.getElementById('root'));
+
+
+// календарь на весь экран
+// Каждый день календаря - это просто кол-во часов, но при нажатии появляется вся статистика
+// 1 станица - список работников
+// 2 страница - список всех табелей/графиков этого работника
+// 3 страница - выбранный табель/график работника
+// список работников - state номер 1
+// данные о работниках - state номер 2
+
+// потом сделать свои кнопки - css module

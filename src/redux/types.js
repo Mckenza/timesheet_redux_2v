@@ -4,6 +4,11 @@ export const LOAD_ITEMS_LIST = 'LIST/LOAD_ITEMS';
 
 /* ------------------------------- */
 
+export const OPEN_ADD_MONTH = 'TABLE/OPEN_MONTH_FORM';
+export const CLOSE_ADD_MONTH = 'TABLE/CLOSE_MONTH_FORM';
+
+/* ------------------------------- */
+
 export const OPEN_FORM_ADD = 'ADD/OPEN_FORM';
 export const CLOSE_FORM_ADD = 'ADD/CLOSE_FORM';
 

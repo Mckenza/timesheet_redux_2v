@@ -1,5 +1,5 @@
 import { saveLocalStorage, removeLocalStorage, saveIdInLocal, removeIdFromLocal, getData } from "../components/local-storage/dataFromLocalStorage";
-import { ADD_ITEM_LIST, CLOSE_FORM_ADD, LOAD_ITEMS_LIST, OPEN_FORM_ADD, REMOVE_ITEM_LIST } from "./types";
+import { ADD_ITEM_LIST, CLOSE_ADD_MONTH, CLOSE_FORM_ADD, LOAD_ITEMS_LIST, OPEN_ADD_MONTH, OPEN_FORM_ADD, REMOVE_ITEM_LIST } from "./types";
 
 export function addItemList(data){
     return dispatch => {
@@ -47,6 +47,18 @@ export function loadDataList(){
         } catch(e){
             console.log('Ошибка загрузки списка', e);
         }
+    }
+}
+
+export function viewAddMonth(){
+    return {
+        type: OPEN_ADD_MONTH,
+    }
+}
+
+export function closeAddMonth(){
+    return {
+        type: CLOSE_ADD_MONTH,
     }
 }
 

@@ -1,4 +1,5 @@
 import React from "react";
+import FormMonth from "./components/main/form-add-month/FormMonth";
 import FormAdd from "./components/main/form-add/FormAdd";
 import List from "./components/main/list-employees/List";
 
@@ -12,6 +13,7 @@ function App() {
         <div className='wrap_main'>
           <List/>
           <FormAdd/>
+          <FormMonth/>
         </div>
       </main>
       <footer>

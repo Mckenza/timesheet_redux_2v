@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { connect } from "react-redux";
-import { removeItemList } from '../../../redux/actions';
+import { removeItemList, viewAddMonth } from '../../../redux/actions';
+import ListForTables from "./listTables/ListForTables";
 
-const ItemList = ({ info, removeItemList }) => {
+const ItemList = ({ info, removeItemList, viewAddMonth }) => {
 
     return (
         <div className='item_list' key={info.id}>
@@ -15,66 +16,17 @@ const ItemList = ({ info, removeItemList }) => {
                 <div className="wrap_manage_item">
                     <button onClick={() => removeItemList(info.id)}>Удалить</button>
                     <button>Редактировать</button>
+                    <button onClick={() => viewAddMonth()}>Добавить месяц</button>
                 </div>
             </div>
-            <div className="list_tables_empl">
-                <div className="table_item">
-                    <div className="date">
-                        24 февраля 2022
-                    </div>
-                    <div className="hours_from_table">
-                        176 часов
-                    </div>
-                    <button className="edit_table"></button>
-                    <button className="delete_table">&#10006;</button>
-                </div>
-                <div className="table_item">
-                    <div className="date">
-                        24 февраля 2022
-                    </div>
-                    <div className="hours_from_table">
-                        176 часов
-                    </div>
-                    <button className="edit_table"></button>
-                    <button className="delete_table">&#10006;</button>
-                </div>
-                <div className="table_item">
-                    <div className="date">
-                        24 февраля 2022
-                    </div>
-                    <div className="hours_from_table">
-                        176 часов
-                    </div>
-                    <button className="edit_table"></button>
-                    <button className="delete_table">&#10006;</button>
-                </div>
-                <div className="table_item">
-                    <div className="date">
-                        24 февраля 2022
-                    </div>
-                    <div className="hours_from_table">
-                        176 часов
-                    </div>
-                    <button className="edit_table"></button>
-                    <button className="delete_table">&#10006;</button>
-                </div>
-                <div className="table_item">
-                    <div className="date">
-                        24 февраля 2022
-                    </div>
-                    <div className="hours_from_table">
-                        176 часов
-                    </div>
-                    <button className="edit_table"></button>
-                    <button className="delete_table">&#10006;</button>
-                </div>
-            </div>
+            <ListForTables/>
         </div>
     )
 }
 
 const mapDispatchToProps = {
     removeItemList,
+    viewAddMonth,
 }
 
 export default connect(null, mapDispatchToProps)(ItemList);

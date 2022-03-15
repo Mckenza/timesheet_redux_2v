@@ -13,7 +13,7 @@ const ListForTables = () => {
                 <ItemForListTables />
                 <ItemForListTables />
             </div>
-            
+
         </div>
     )
 }

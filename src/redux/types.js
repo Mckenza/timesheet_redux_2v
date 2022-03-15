@@ -13,3 +13,7 @@ export const OPEN_FORM_ADD = 'ADD/OPEN_FORM';
 export const CLOSE_FORM_ADD = 'ADD/CLOSE_FORM';
 
 /* ------------------------------- */
+
+export const SAVE_MONTH = 'MONTH/SAVE_MONTH';
+export const DELETE_MONTH = 'MONTH/DELETE_MONTH';
+export const LOAD_MONTHS = 'MONTH/LOAD_MONTHS';

@@ -46,3 +46,8 @@ export function checkAndCreate(key, data){
         return JSON.parse(localStorage.getItem(key));
     }
 }
+
+export function saveAllData(key, data){
+    const buf = JSON.parse(localStorage.getItem(key));
+    localStorage.setItem(key, JSON.stringify({...buf, ...data}));
+}

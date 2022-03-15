@@ -1,9 +1,15 @@
 import React, { useEffect, useRef } from "react";
 import { connect } from "react-redux";
 import { removeItemList, viewAddMonth } from '../../../redux/actions';
+import { saveLocalStorage } from "../../local-storage/dataFromLocalStorage";
 import ListForTables from "./listTables/ListForTables";
 
 const ItemList = ({ info, removeItemList, viewAddMonth }) => {
+
+    function currentId(){
+        saveLocalStorage('currentIdMonthList', info.id);
+        viewAddMonth();
+    }
 
     return (
         <div className='item_list' key={info.id}>
@@ -16,7 +22,7 @@ const ItemList = ({ info, removeItemList, viewAddMonth }) => {
                 <div className="wrap_manage_item">
                     <button onClick={() => removeItemList(info.id)}>Удалить</button>
                     <button>Редактировать</button>
-                    <button onClick={() => viewAddMonth()}>Добавить месяц</button>
+                    <button onClick={() => currentId()}>Добавить месяц</button>
                 </div>
             </div>
             <ListForTables/>

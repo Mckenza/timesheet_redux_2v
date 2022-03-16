@@ -1,9 +1,9 @@
-import { saveAllData } from "../components/local-storage/dataFromLocalStorage";
-import { SAVE_MONTH } from "./types";
+import { getData, saveAllData } from "../components/local-storage/dataFromLocalStorage";
+import { LOAD_MONTHS, SAVE_MONTH } from "./types";
 
-export function saveMonth(data){
+export function saveMonth(data) {
     return dispatch => {
-        try{
+        try {
             const bufObj = {
                 [`${data.date.year}-${data.date.month}`]: data.info,
             }
@@ -19,3 +19,23 @@ export function saveMonth(data){
         }
     }
 }
+
+export function loadMonths(id) {
+    return dispatch => {
+        try {
+            const load = getData(`data_tables_empl_${id}`);
+            dispatch({
+                type: LOAD_MONTHS,
+                payload: {
+                    load,
+                    id,
+                }
+            });
+
+            console.log('Загрузка календаря успешна id:' + id);
+        } catch (e) {
+            console.log('Загрузка календаря не успешна. id:' + id)
+        }
+    }
+}
+

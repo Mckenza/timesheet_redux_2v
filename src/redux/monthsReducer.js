@@ -27,11 +27,15 @@ const initState = {};
 export default (state = initState, action) => {
     switch (action.type) {
         case SAVE_MONTH:
-            return { ...state, [`${action.payload.date.year}-${action.payload.date.month}`]: action.payload.info}
+            const name = `data_tables_empl_${action.payload.id}`;
+            const bufObj = {
+                [`${action.payload.date.year}-${action.payload.date.month}`]: action.payload.info,
+            }
+            return { ...state, [name]: { ...state[name], ...bufObj}};
         case DELETE_MONTH:
             return;
         case LOAD_MONTHS:
-            return state;
+            return {...state, [`data_tables_empl_${action.payload.id}`]: action.payload.load}
         default:
             return state;
     }

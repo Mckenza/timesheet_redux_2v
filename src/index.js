@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import './style.scss';
 import { Provider } from 'react-redux';
-import { applyMiddleware, createStore } from 'redux';
+import { applyMiddleware, createStore, compose } from 'redux';
 import { rootReducer } from './redux/rootReduser';
 import { saveDateInLocal } from './redux/middlewares/saveDataInLocal';
 
-const store = createStore(rootReducer, applyMiddleware(saveDateInLocal));
+const store = createStore(rootReducer, compose(applyMiddleware(saveDateInLocal),  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()));
 
 const app = <Provider store={store}>
   <App/>

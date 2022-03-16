@@ -25,7 +25,7 @@ const ItemList = ({ info, removeItemList, viewAddMonth }) => {
                     <button onClick={() => currentId()}>Добавить месяц</button>
                 </div>
             </div>
-            <ListForTables/>
+            <ListForTables idEmpl={info.id}/>
         </div>
     )
 }

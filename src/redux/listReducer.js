@@ -9,7 +9,7 @@ export const listReducer = (state = initState, action) => {
         case REMOVE_ITEM_LIST:
             return state.filter(item => item.id !== action.payload);
         case LOAD_ITEMS_LIST:
-            return [...state, ...action.payload];
+            return [...action.payload];
         default:
             return state;
     }

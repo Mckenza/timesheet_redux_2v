@@ -9,7 +9,7 @@ const ListEmployes = ({list}) => {
             {
                 list.map(item => {
                     return (
-                        <ItemList info = {item}/>
+                        <ItemList info = {item} key = {item.id}/>
                     )
                 })
             }

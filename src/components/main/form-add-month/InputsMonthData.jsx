@@ -9,7 +9,7 @@ const InputsMonthData = ({ closeAddMonth, saveMonth }) => {
         const time = new Date(Date.now());
         return time.getFullYear();
     })
-    const [month, setMonth] = useState(0);
+    const [month, setMonth] = useState(1);
     const monthsButtons = useRef(null);
 
     function changeColor(e) {
@@ -23,9 +23,9 @@ const InputsMonthData = ({ closeAddMonth, saveMonth }) => {
 
     useEffect(() => {
         monthsButtons.current.addEventListener('click', changeColor);
-
+        
         return () => {
-            monthsButtons.current.removeEventListener('click', changeColor);
+            window.removeEventListener('click', changeColor);
         }
     }, [])
 
@@ -34,9 +34,9 @@ const InputsMonthData = ({ closeAddMonth, saveMonth }) => {
     }, [month]);
 
     function justPackingData(){
-        console.log(month, year)
+        const id = JSON.parse(localStorage.getItem('currentIdMonthList'));
         return {
-            id: JSON.parse(localStorage.getItem('currentIdMonthList')),
+            id,
             date: {
                 month,
                 year,

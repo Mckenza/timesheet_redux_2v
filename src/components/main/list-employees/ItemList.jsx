@@ -20,9 +20,9 @@ const ItemList = ({ info, removeItemList, viewAddMonth }) => {
                 </div>
                 <div className="derar_item">{info.depar}</div>
                 <div className="wrap_manage_item">
-                    <button onClick={() => removeItemList(info.id)}>Удалить</button>
-                    <button>Редактировать</button>
-                    <button onClick={() => currentId()}>Добавить месяц</button>
+                    <button className="btn_delete" onClick={() => removeItemList(info.id)}>Удалить</button>
+                    <button className="btn_edit">Редактировать</button>
+                    <button className="btn_add" onClick={() => currentId()}>Новый месяц</button>
                 </div>
             </div>
             <ListForTables idEmpl={info.id}/>

@@ -1,5 +1,5 @@
-import { getData, saveAllData } from "../components/local-storage/dataFromLocalStorage";
-import { LOAD_MONTHS, SAVE_MONTH } from "./types";
+import { getData, removeLocalStorage, saveAllData, saveLocalStorage } from "../components/local-storage/dataFromLocalStorage";
+import { CLEAR_MONTHS, DELETE_MONTH, LOAD_MONTHS, SAVE_MONTH } from "./types";
 
 export function saveMonth(data) {
     return dispatch => {
@@ -20,6 +20,28 @@ export function saveMonth(data) {
     }
 }
 
+export function deleteMonth({ id, idMonth }) {
+    return dispatch => {
+        try {
+            const tableData = getData(`data_tables_empl_${id}`);
+            delete tableData[idMonth];
+            saveLocalStorage(`data_tables_empl_${id}`, tableData);
+
+            dispatch({
+                type: DELETE_MONTH,
+                payload: {
+                    idMonth,
+                    id,
+                }
+            })
+
+            console.log('Удаление календаря успешно');
+        } catch (e) {
+            console.log('удаление календаря неудачное', e);
+        }
+    }
+}
+
 export function loadMonths(id) {
     return dispatch => {
         try {
@@ -34,8 +56,26 @@ export function loadMonths(id) {
 
             console.log('Загрузка календаря успешна id:' + id);
         } catch (e) {
-            console.log('Загрузка календаря не успешна. id:' + id)
+            console.log('Загрузка календаря не успешна. id:' + id);
         }
+    }
+}
+
+export function allDeleteTables(id) {
+    return dispatch => {
+        try {
+            removeLocalStorage(`data_tables_empl_${id}`);
+
+            dispatch({
+                type: CLEAR_MONTHS,
+                payload: id,
+            });
+
+            console.log('Очистка календарей удачна');
+        } catch (e) {
+            console.log('Очистка календарей неудачна', e);
+        }
+
     }
 }
 

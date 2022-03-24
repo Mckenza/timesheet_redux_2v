@@ -17,3 +17,4 @@ export const CLOSE_FORM_ADD = 'ADD/CLOSE_FORM';
 export const SAVE_MONTH = 'MONTH/SAVE_MONTH';
 export const DELETE_MONTH = 'MONTH/DELETE_MONTH';
 export const LOAD_MONTHS = 'MONTH/LOAD_MONTHS';
+export const CLEAR_MONTHS = 'MONTH/CLEAR_MONTHS';

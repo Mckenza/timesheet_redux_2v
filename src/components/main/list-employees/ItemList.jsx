@@ -1,14 +1,20 @@
 import React, { useEffect, useRef } from "react";
 import { connect } from "react-redux";
 import { removeItemList, viewAddMonth } from '../../../redux/actions';
+import { allDeleteTables } from "../../../redux/actionsMonth";
 import { saveLocalStorage } from "../../local-storage/dataFromLocalStorage";
 import ListForTables from "./listTables/ListForTables";
 
-const ItemList = ({ info, removeItemList, viewAddMonth }) => {
+const ItemList = ({ info, removeItemList, viewAddMonth, allDeleteTables }) => {
 
     function currentId(){
         saveLocalStorage('currentIdMonthList', info.id);
         viewAddMonth();
+    }
+
+    function composeFunc(){
+        removeItemList(info.id);
+        allDeleteTables(info.id);
     }
 
     return (
@@ -20,7 +26,7 @@ const ItemList = ({ info, removeItemList, viewAddMonth }) => {
                 </div>
                 <div className="derar_item">{info.depar}</div>
                 <div className="wrap_manage_item">
-                    <button className="btn_delete" onClick={() => removeItemList(info.id)}>Удалить</button>
+                    <button className="btn_delete" onClick={() => composeFunc()}>Удалить</button>
                     <button className="btn_edit">Редактировать</button>
                     <button className="btn_add" onClick={() => currentId()}>Новый месяц</button>
                 </div>
@@ -33,6 +39,7 @@ const ItemList = ({ info, removeItemList, viewAddMonth }) => {
 const mapDispatchToProps = {
     removeItemList,
     viewAddMonth,
+    allDeleteTables,
 }
 
 export default connect(null, mapDispatchToProps)(ItemList);

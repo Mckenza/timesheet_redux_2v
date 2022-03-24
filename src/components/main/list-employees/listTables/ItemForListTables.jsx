@@ -1,5 +1,7 @@
 import React from "react";
+import { connect } from "react-redux";
 import { Link, useParams } from "react-router-dom";
+import { deleteMonth } from "../../../../redux/actionsMonth";
 
 function parseDate(date) {
     const [year, month] = date.split('-');
@@ -9,13 +11,11 @@ function parseDate(date) {
     return `${arrayMonth[month - 1]} ${year}`;
 }
 
-const ItemForListTables = ({ idEmpl, data }) => {
+const ItemForListTables = ({ idEmpl, data, deleteMonth }) => {
 
     const params = useParams();
 
-    function goCalendar(){
-        document.location = `calendar/${idEmpl}/${data}`;
-    }
+    
 
     return (
         <div className="table_item">
@@ -27,9 +27,13 @@ const ItemForListTables = ({ idEmpl, data }) => {
             </div>
             <Link to={`calendar/${idEmpl}/${data}`}/>
             
-            <button className="delete_table">&#10006;</button>
+            <button onClick={() => {deleteMonth({id: idEmpl, idMonth: data})}} className="delete_table">&#10006;</button>
         </div>
     )
 }
 
-export default ItemForListTables;
+const mapDispatchToProps = {
+    deleteMonth,
+}
+
+export default connect(null, mapDispatchToProps)(ItemForListTables);

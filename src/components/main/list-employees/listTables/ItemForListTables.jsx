@@ -13,10 +13,6 @@ function parseDate(date) {
 
 const ItemForListTables = ({ idEmpl, data, deleteMonth }) => {
 
-    const params = useParams();
-
-    
-
     return (
         <div className="table_item">
             <div className="date">

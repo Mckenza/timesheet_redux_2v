@@ -18,3 +18,10 @@ export const SAVE_MONTH = 'MONTH/SAVE_MONTH';
 export const DELETE_MONTH = 'MONTH/DELETE_MONTH';
 export const LOAD_MONTHS = 'MONTH/LOAD_MONTHS';
 export const CLEAR_MONTHS = 'MONTH/CLEAR_MONTHS';
+
+/* ------------------------------- */
+
+export const LOAD_ALL_DATA = 'EMPL/LOAD_ALL_DATA';
+export const CHANGE_HOURS = 'EMPL/CHANGE_HOURS';
+export const CHANGE_TYPE_WORK = 'EMPL/CHANGE_TYPE_WORK';
+export const CHANGE_ACTION = 'EMPL/CHANGE_ACTION';

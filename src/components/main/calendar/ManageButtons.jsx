@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import { changeTypeWork, changeAction } from "../../../redux/redux_for_calendar/calendarAction";
+import { changeTypeWork, changeAction, savetimes } from "../../../redux/redux_for_calendar/calendarAction";
 
-const ManageButtons = ({ changeTypeWork, changeAction }) => {
+const ManageButtons = ({ params, changeTypeWork, changeAction, savetimes, calendarData }) => {
 
     function changeType(e) {
         const parantElement = e.target.parentNode;
@@ -13,8 +13,8 @@ const ManageButtons = ({ changeTypeWork, changeAction }) => {
         changeTypeWork(e.target.name);
     }
 
-    function changeAct(e) {
-        changeAction(e.target.name);
+    function changeAct() {
+        savetimes(calendarData.infoEmpl.id, calendarData.dataMonth, params);
     }
 
     return (
@@ -28,9 +28,9 @@ const ManageButtons = ({ changeTypeWork, changeAction }) => {
             </div>
             <div className="edit_calendar">
                 <h4>Управление</h4>
-                <button name="edit" onClick={changeAct}>Редактировать</button>
+                <button name="edit" onClick={(e) => changeAction(e.target.name)}>Редактировать</button>
                 <button name="save" onClick={changeAct}>Сохранить</button>
-                <button name="cancel" onClick={changeAct}>Отменить</button>
+                <button name="cancel" onClick={() => {}}>Отменить</button>
             </div>
         </div>
     )
@@ -39,6 +39,13 @@ const ManageButtons = ({ changeTypeWork, changeAction }) => {
 const mapDispatchToProps = {
     changeTypeWork,
     changeAction,
+    savetimes,
 }
 
-export default connect(null, mapDispatchToProps)(ManageButtons);
+const mapStateToProps = state => {
+    return {
+        calendarData: state.calendar,
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ManageButtons);

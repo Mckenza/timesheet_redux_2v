@@ -497,6 +497,95 @@ main {
             }
         }
     }
+
+    .calendar{
+        max-height: calc(100% - 150px);
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        overflow: scroll;
+
+        &::-webkit-scrollbar{
+            height: 0;
+            width: 0;
+        }
+
+        .days_calendar{
+            width: 100%;
+            height: 30px;
+             
+            ul{
+                height: 100%;
+                display: flex;
+                list-style: none;
+                justify-content: space-between;
+                
+
+                *{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    width: 14%;
+                }
+            }
+        }
+
+        .item_calendar_blank, .item_calendar{
+            min-height: 200px;
+            margin-bottom: 10px;
+            width: 14%;
+            background-color: #94c5db;
+        }
+
+        .item_calendar{
+            padding: 5px;
+            position: relative;
+
+            .empty_day{
+                height: 100%;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+            }
+
+            .hours_day{
+                height: 100%;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                .info_time{
+                    margin: 5px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+            }
+
+            .number_day{
+                position: absolute;
+                top: 0;
+                right: 5px;
+                font-size: 38px;
+            }
+
+            .save_data_about_day{
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                border: none;
+                background-color: transparent;
+            }
+        }
+    }
 }
 
 /* ------- /CALENDAR -------- */

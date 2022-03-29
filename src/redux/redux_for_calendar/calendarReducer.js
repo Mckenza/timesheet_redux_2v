@@ -1,4 +1,4 @@
-import { CHANGE_ACTION, CHANGE_HOURS, CHANGE_TYPE_WORK, LOAD_ALL_DATA } from "../types";
+import { CHANGE_ACTION, CHANGE_HOURS, CHANGE_TYPE_WORK, EDIT_HOURS, LOAD_ALL_DATA, SAVE_HOURS } from "../types";
 
 const initState = {
     infoEmpl: {},
@@ -21,6 +21,11 @@ export default (state = initState, action) => {
             return { ...state, manage: { ...state.manage, typeWork: action.payload } };
         case CHANGE_ACTION:
             return { ...state, manage: { ...state.manage, action: action.payload } };
+        case EDIT_HOURS:
+            return { ...state, dataMonth: { ...state.dataMonth, ...action.payload } };
+        case SAVE_HOURS: {
+            return state;
+        }
 
         default:
             return state;

@@ -41,6 +41,7 @@ const ItemCalendar = ({ item, hours, times, manage, editTime }) => {
 
     return (
         <div className="item_calendar">
+            <div className="number_day">{item.numberDay}</div>
             {
                 hours === 'noHours'
                     ?
@@ -72,7 +73,7 @@ const ItemCalendar = ({ item, hours, times, manage, editTime }) => {
                         }
                     </div>
             }
-            <div className="number_day">{item.numberDay}</div>
+            
             <button onClick={() => { saveTimes() }} className="save_data_about_day"></button>
 
         </div>

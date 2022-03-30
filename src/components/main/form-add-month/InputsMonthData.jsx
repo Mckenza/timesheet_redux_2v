@@ -47,7 +47,9 @@ const InputsMonthData = ({ closeAddMonth, saveMonth }) => {
 
     return (
         <div className="inputs_month_data">
+            <h2>ГОД И МЕСЯЦ</h2>
             <div className="year_for_table">
+                
                 <input value={year} type="number" onChange={(e) => { setYear(e.target.value) }} placeholder='Год'></input>
             </div>
             <div ref={monthsButtons} className="months_buttons">
